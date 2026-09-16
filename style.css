@@ -128,11 +128,21 @@ main {
         font-size: 22px;
     }
 
+
+    main {
+        justify-content: center;
+
+        padding-top: 80px;
+        box-sizing: border-box;
+    }
+
+
     #expInput {
         width: 80%;
 
         font-size: 18px;
     }
+
 
     #shareButton {
         font-size: 18px;
