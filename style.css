@@ -59,7 +59,7 @@ main {
 
     transform: translate(-50%, -50%) scale(0.3);
 
-    font-size: 150px;
+    font-size: clamp(60px, 15vw, 100px);
 
     font-weight: bold;
 
@@ -116,4 +116,28 @@ main {
 /* 顯示並播放動畫 */
 #levelUpText.show {
     animation: levelUpAnimation 1.2s ease-out;
+}
+
+/* 手機版 */
+@media (max-width: 600px) {
+
+    #levelDisplay {
+        top: 15px;
+        left: 15px;
+
+        font-size: 22px;
+    }
+
+    #expInput {
+        width: 80%;
+
+        font-size: 18px;
+    }
+
+    #shareButton {
+        font-size: 18px;
+
+        padding: 12px 24px;
+    }
+
 }
