@@ -1,0 +1,119 @@
+/* 整個網頁 */
+body {
+    margin: 0;
+    height: 100vh;
+
+    font-family: Arial, sans-serif;
+}
+
+
+/* 左上角等級 */
+#levelDisplay {
+    position: fixed;
+
+    top: 20px;
+    left: 20px;
+
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* 輸入框 */
+
+main {
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 15px;
+}
+
+#expInput {
+    width: 300px;
+
+    padding: 15px;
+
+    font-size: 18px;
+
+    box-sizing: border-box;
+}
+
+#shareButton {
+    padding: 10px 20px;
+
+    font-size: 16px;
+
+    cursor: pointer;
+}
+
+/* Level Up 文字 */
+#levelUpText {
+    position: fixed;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%) scale(0.3);
+
+    font-size: 150px;
+
+    font-weight: bold;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    /* 彩虹漸層 */
+    background: linear-gradient(
+        90deg,
+        red,
+        orange,
+        yellow,
+        green,
+        cyan,
+        blue,
+        violet
+    );
+
+    background-clip: text;
+    -webkit-background-clip: text;
+
+    color: transparent;
+}
+
+/* Level Up 動畫 */
+@keyframes levelUpAnimation {
+
+    /* 動畫開始 */
+    0% {
+        transform: translate(-50%, -50%) scale(0.3);
+        opacity: 0;
+    }
+
+    /* 快速放大 */
+    20% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 1;
+    }
+
+    /* 稍微往上 */
+    50% {
+        transform: translate(-50%, -60%) scale(1);
+        opacity: 1;
+    }
+
+    /* 飛走並消失 */
+    100% {
+        transform: translate(-50%, -150%) scale(1.3);
+        opacity: 0;
+    }
+}
+
+/* 顯示並播放動畫 */
+#levelUpText.show {
+    animation: levelUpAnimation 1.2s ease-out;
+}
