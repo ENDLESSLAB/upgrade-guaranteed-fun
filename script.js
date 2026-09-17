@@ -20,6 +20,8 @@ const shareButton = document.getElementById("shareButton");
 
 const upgradeButton = document.getElementById("upgradeButton");
 
+const levelUpSound = document.getElementById("levelUpSound");
+
 // --------------------
 // 升級
 // --------------------
@@ -47,6 +49,10 @@ function upgrade() {
     // 清空輸入框
     expInput.value = "";
 
+
+    // 播放升級音效
+    levelUpSound.currentTime = 0;
+    levelUpSound.play();
 
     // 播放 Level Up 動畫
     playLevelUpAnimation();
