@@ -18,6 +18,42 @@ const levelUpText = document.getElementById("levelUpText");
 
 const shareButton = document.getElementById("shareButton");
 
+const upgradeButton = document.getElementById("upgradeButton");
+
+// --------------------
+// 升級
+// --------------------
+
+function upgrade() {
+
+    // 取得玩家輸入的數字
+    const exp = Number(expInput.value);
+
+
+    // 檢查輸入是否合法
+    if (!Number.isFinite(exp) || exp <= 0) {
+        return;
+    }
+
+
+    // 增加經驗
+    level = level + exp;
+
+
+    // 更新畫面上的等級
+    levelElement.textContent = level;
+
+
+    // 清空輸入框
+    expInput.value = "";
+
+
+    // 播放 Level Up 動畫
+    playLevelUpAnimation();
+
+}
+
+
 // --------------------
 // 玩家按下鍵盤
 // --------------------
@@ -27,41 +63,21 @@ expInput.addEventListener("keydown", function(event) {
     // 如果按的是 Enter
     if (event.key === "Enter") {
 
-        // 取得玩家輸入的數字
-        const exp = Number(expInput.value);
-
-
-        // --------------------
-        // 檢查輸入是否合法
-        // --------------------
-
-        if (!Number.isFinite(exp) || exp <= 0) {
-            return;
-        }
-
-
-        // --------------------
-        // 增加經驗
-        // --------------------
-
-        level = level + exp;
-
-
-        // 更新畫面上的等級
-        levelElement.textContent = level;
-
-
-        // 清空輸入框
-        expInput.value = "";
-
-
-        // 播放 Level Up 動畫
-        playLevelUpAnimation();
+        upgrade();
 
     }
 
 });
 
+// --------------------
+// 玩家按下升級按鈕
+// --------------------
+
+upgradeButton.addEventListener("click", function() {
+
+    upgrade();
+
+});
 
 // --------------------
 // Level Up 動畫
